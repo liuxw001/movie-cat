@@ -1,0 +1,23 @@
+{
+  "name": "angular-cat",
+  "version": "1.0.0",
+  "description": "ng电影案列",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "yarn install",
+    "start": "./node_modules/.bin/hs -a localhost -p 9000 -o",
+    "pretest": "yarn install",
+    "test": "./node_modules/.bin/browser-sync start --server app --files 'app/index.html' --no-notify"
+  },
+  "keywords": [
+    "lxw",
+    "Angular"
+  ],
+  "author": "lxw <1303553285@qq.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "http-server": "^0.9.0"
+  }
+}

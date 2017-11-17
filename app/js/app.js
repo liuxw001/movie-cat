@@ -1,5 +1,7 @@
 /**
  * Created by acer on 2017-11-16.
  * 主文件
+ * 配置依赖模块
  */
-angular.module('myApp', ['ui.router']);
+"use strict";
+angular.module('myApp', ['ui.router', 'oc.lazyLoad']);

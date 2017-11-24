@@ -5,9 +5,13 @@
 "use strict";
 angular.module("myApp")
 	.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise('comingSoon');
+		$urlRouterProvider.otherwise('app/inTheaters');
 		$stateProvider
-			.state('inTheaters', {
+			.state('app', {
+				url: '/app',
+				templateUrl: 'tpl/app.html'
+			})
+			.state('app.inTheaters', {
 				url: '/inTheaters',
 				templateUrl: 'modules/in_theaters/view.html',
 				resolve: {
@@ -18,10 +22,10 @@ angular.module("myApp")
 							]);
 						}]
 				}
-			}).state('comingSoon', {
+			}).state('app.comingSoon', {
 				url: '/comingSoon',
 				templateUrl: 'modules/coming_soon/view.html'
-			}).state('top10', {
+			}).state('app.top10', {
 				url: '/top10',
 				templateUrl: 'modules/top10/view.html'
 			})

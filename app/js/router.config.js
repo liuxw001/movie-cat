@@ -27,6 +27,14 @@ angular.module("myApp")
 				templateUrl: 'modules/coming_soon/view.html'
 			}).state('app.top10', {
 				url: '/top10',
-				templateUrl: 'modules/top10/view.html'
+				templateUrl: 'modules/top10/view.html',
+				resolve: {
+					deps: ['$ocLazyLoad', function( $ocLazyLoad){
+						return $ocLazyLoad.load([
+							'modules/top10/view.css',
+							'modules/top10/view.js'
+						]);
+					}]
+				}
 			})
 	}]);

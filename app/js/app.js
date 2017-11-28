@@ -4,4 +4,8 @@
  * 配置依赖模块
  */
 "use strict";
-angular.module('myApp', ['ui.router', 'oc.lazyLoad']);
+angular.module('myApp', [
+	'ui.router', 
+	'oc.lazyLoad',
+	'moviecat.crossdomain'
+]);

@@ -1,1 +1,28 @@
-<h1 class="page-header h1-title" ng-controller="inTheatersCtrl">{{name}}</h1>
+<div ng-controller="inTheatersCtrl">
+	<h1 class="page-header h1-title">{{name}}</h1>
+	<div class="list-group">
+		<a href="#" class="list-group-item" ng-repeat="sub in subjects">
+			<span class="badge">{{sub.rating.average}}</span>
+			<div class="media">
+				<div class="media-left">
+					<img class="media-object" ng-src="{{sub.images.large}}" alt="{{sub.title}}">
+				</div>
+				<div class="media-body">
+					<h3 class="media-heading">{{sub.title}}</h3>
+					<p style="display: inline-block">导演：
+						<span ng-repeat=" dir in sub.directors">
+							{{dir.name + ($last?'':'、')}}
+						</span>
+					</p>
+					<span style="margin-left: 10px">上映年份：{{sub.year}}</span>
+					<p>类型：<span>{{sub.genres.join('、')}}</span></p>
+					<p>主演：
+						<span ng-repeat="actor in sub.casts">
+							{{actor.name + ($last?'':'、')}}
+						</span>
+					</p>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>

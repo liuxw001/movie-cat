@@ -9,7 +9,14 @@ angular.module("myApp")
 		$stateProvider
 			.state('app', {
 				url: '/app',
-				templateUrl: 'tpl/app.html'
+				templateUrl: 'tpl/app.html',
+				resolve: {
+					deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+						return $ocLazyLoad.load([
+							'js/directive/auto_focus.js'
+						]);
+					}]
+				}
 			})
 			.state('app.inTheaters', {
 				url: '/inTheaters',

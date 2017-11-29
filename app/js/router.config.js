@@ -26,7 +26,7 @@ angular.module("myApp")
 				url: '/comingSoon',
 				templateUrl: 'modules/coming_soon/view.html'
 			}).state('app.top10', {
-				url: '/top10',
+				url: '/top10/page=:page',
 				templateUrl: 'modules/top10/view.html',
 				resolve: {
 					deps: ['$ocLazyLoad', function( $ocLazyLoad){

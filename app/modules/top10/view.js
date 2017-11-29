@@ -2,14 +2,30 @@
  * Created by acer on 2017-11-16.
  * in_theaters的到控制器
  */
-myApp.controller('top10Ctrl', ['$scope', 'CrossDomain', function ($scope, CrossDomain) {
-	$scope.name = 'top10';
-	$scope.subjects = [];
-	$scope.totalCount = 0;
-	CrossDomain.jsonp('http://api.douban.com/v2/movie/top250', {}, function (data) {
-		console.log(data);
-		$scope.subjects = data.subjects;
-		$scope.totalCount = data.total;
-		$scope.$apply('subjects');
-	})
+myApp.controller('top10Ctrl', ['$scope', 'CrossDomain', '$stateParams', '$state',
+	function ($scope, CrossDomain, $stateParams, $state) {
+		$scope.name = '';
+		$scope.subjects = [];
+		$scope.totalCount = 0;
+		$scope.loading = true;
+		$scope.totalPages = 0;
+		var count = 5;
+		$scope.currentPage = parseInt($stateParams.page ? $stateParams.page : 1);
+		var start = ($scope.currentPage - 1)*count;
+		CrossDomain.jsonp('http://api.douban.com/v2/movie/top250',
+			{
+				start: start,
+				count: count
+			}, function (data) {
+				$scope.name = data.title;
+				$scope.subjects = data.subjects;
+				$scope.totalCount = data.total;
+				$scope.totalPages = Math.ceil(data.total / count);
+				$scope.loading = false;
+				$scope.$apply();
+		});
+		$scope.goPage = function (page) {
+			if(page >= 1 && page <= $scope.totalPages)
+				$state.go('app.top10', {page: page});
+		}
 }]);

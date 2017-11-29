@@ -27,5 +27,25 @@
 			</div>
 		</a>
 	</div>
-	<p>总共: {{totalCount}} 条记录</p>
+	<div ng-show="!loading">
+		<nav>
+			<ul class="pager">
+				<li ng-class="{disabled: currentPage==1}"><a ng-click="goPage(currentPage-1)">Previous</a></li>
+				<li ng-class="{disabled: currentPage==totalPages}"><a ng-click="goPage(currentPage+1)">Next</a></li>
+			</ul>
+		</nav>
+		<p>总共: {{totalCount}} 条记录，第{{currentPage}}/{{totalPages}} 页</p>
+	</div>
+	<div class="loading" ng-show="loading">
+		<div class="loadEffect">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
 </div>

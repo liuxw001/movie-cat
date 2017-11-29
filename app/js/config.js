@@ -12,4 +12,9 @@ var myApp = angular.module("myApp")
 			myApp.service    = $provide.service;
 			myApp.constant   = $provide.constant;
 			myApp.value      = $provide.value;
-		}]);
+		}])
+	.constant('AppConfig', {
+		pageSize: 5,
+		listAddress: 'http://api.douban.com/v2/movie/',
+		detailAddress: 'http://api.douban.com/v2/movie/subject/'
+	});

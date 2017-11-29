@@ -2,17 +2,17 @@
  * Created by acer on 2017-11-16.
  * in_theaters的到控制器
  */
-myApp.controller('top10Ctrl', ['$scope', 'CrossDomain', '$stateParams', '$state', '$rootScope',
-	function ($scope, CrossDomain, $stateParams, $state, $rootScope) {
+myApp.controller('top10Ctrl', ['$scope', 'CrossDomain', '$stateParams', '$state', '$rootScope', 'AppConfig',
+	function ($scope, CrossDomain, $stateParams, $state, $rootScope, AppConfig) {
 		$scope.name = '';
 		$scope.subjects = [];
 		$scope.totalCount = 0;
 		$scope.loading = true;
 		$scope.totalPages = 0;
-		var count = 5;
+		var count = AppConfig.pageSize;
 		$scope.currentPage = parseInt($stateParams.page ? $stateParams.page : 1);
 		var start = ($scope.currentPage - 1)*count;
-		CrossDomain.jsonp('http://api.douban.com/v2/movie/top250',
+		CrossDomain.jsonp(AppConfig.listAddress+'top250',
 			{
 				start: start,
 				count: count

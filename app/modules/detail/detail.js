@@ -2,11 +2,11 @@
  * Created by acer on 2017-11-29.
  * 电影详情js
  */
-myApp.controller('detailCtrl', ['$scope', 'CrossDomain', '$stateParams', '$state', '$rootScope',
-	function ($scope, CrossDomain, $stateParams, $state, $rootScope) {
+myApp.controller('detailCtrl', ['$scope', 'CrossDomain', '$stateParams', '$state', '$rootScope', 'AppConfig',
+	function ($scope, CrossDomain, $stateParams, $state, $rootScope, AppConfig) {
 		$scope.movie = {};
 		var id = $stateParams.id;
-		CrossDomain.jsonp('http://api.douban.com/v2/movie/subject/'+id, {}, function (data) {
+		CrossDomain.jsonp(AppConfig.detailAddress+id, {}, function (data) {
 			$scope.movie = {
 				title: data.title,
 				image: data.images.small,

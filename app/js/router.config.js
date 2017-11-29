@@ -43,5 +43,15 @@ angular.module("myApp")
 						]);
 					}]
 				}
+			}).state('app.detail', {
+				url: '/detail/id=:id',
+				templateUrl: 'modules/detail/detail.html',
+				resolve: {
+					deps: ['$ocLazyLoad', function( $ocLazyLoad){
+						return $ocLazyLoad.load([
+							'modules/detail/detail.js'
+						]);
+					}]
+				}
 			})
 	}]);

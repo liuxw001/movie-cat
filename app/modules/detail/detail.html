@@ -1,0 +1,8 @@
+<div class="jumbotron" ng-controller="detailCtrl">
+	<h3>{{movie.title}}</h3>
+	<img ng-src="{{movie.image}}" alt="{{movie.title}}">
+	<p>{{movie.summary}}</p>
+	<div class="row text-center">
+		<button class="btn btn-primary" ng-click="goBack()">返回</button>
+	</div>
+</div>

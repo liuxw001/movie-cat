@@ -1,7 +1,7 @@
 <div ng-controller="top10Ctrl">
 	<h1 class="page-header h1-title">{{name}}</h1>
 	<div class="list-group">
-		<a href="#" class="list-group-item" ng-repeat="sub in subjects">
+		<a class="list-group-item" ng-repeat="sub in subjects" ng-click="goDetail(sub.id)">
 			<span class="badge">{{sub.rating.average}}</span>
 			<div class="media">
 				<div class="media-left">

@@ -10,6 +10,9 @@
 .media {
 	 margin-top: 0;
 }
+.list-group a {
+	cursor: pointer;
+}
 .loading {
 	position: fixed;
 	top: 0;
